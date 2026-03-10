@@ -10,9 +10,13 @@ body,
   width: 100%;
   min-height: 100%;
   background: #050505;
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
 }
 
 * {
   box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Barlow Condensed', Impact, Arial Narrow, sans-serif;
 }
