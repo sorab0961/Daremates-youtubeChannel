@@ -21,6 +21,7 @@ export const VideoCard = ({ video }) => (
       <img
         src={video.thumbnail}
         alt={video.title}
+        loading="lazy"
         className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500"
       />
       {/* Tag sticker — only if set */}

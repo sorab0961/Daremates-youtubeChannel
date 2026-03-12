@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { Zap, Skull } from 'lucide-react';
 
 import { Navbar } from './components/Navbar';
@@ -11,6 +12,11 @@ import Challenges from './pages/Challenges';
 import DareGenerator from './pages/DareGenerator';
 import AITools from './pages/AITools';
 import AllVideos from './pages/AllVideos';
+
+// SEO Pages
+import BestGamingChannels from './pages/seo/BestGamingChannels';
+import TopTechCreators from './pages/seo/TopTechCreators';
+import EducationChannels from './pages/seo/EducationChannels';
 
 // Inject marquee keyframe globally once
 const marqueeCss = `
@@ -48,6 +54,12 @@ function Layout() {
           <Route path="/all-videos" element={<AllVideos />} />
           <Route path="/generator" element={<DareGenerator />} />
           <Route path="/ai-tools" element={<AITools />} />
+          
+          {/* SEO Pages */}
+          <Route path="/seo/best-gaming-youtube-channels" element={<BestGamingChannels />} />
+          <Route path="/seo/top-tech-youtube-creators" element={<TopTechCreators />} />
+          <Route path="/seo/education-youtube-channels" element={<EducationChannels />} />
+
           {/* Fallback to home for unknown routes */}
           <Route path="*" element={<Home />} />
         </Routes>
@@ -68,9 +80,11 @@ function Layout() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Layout />
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Layout />
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://daremates-youtube-channel-9dw2-2s88itzwk.vercel.app/sitemap.xml
