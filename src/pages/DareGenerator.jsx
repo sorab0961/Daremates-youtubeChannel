@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Ghost, Target } from 'lucide-react';
-import { callGemini } from '../api/gemini';
+import { callGrok } from '../api/grok';
 import { DARES } from '../data/dares';
 import { FadeIn } from '../components/FadeIn';
 
@@ -12,9 +12,9 @@ export default function DareGenerator() {
   const spin = async () => {
     setIsSpinning(true);
 
-    if (useAI && import.meta.env.VITE_GEMINI_API_KEY) {
+    if (useAI && import.meta.env.VITE_GROK_API_KEY) {
       try {
-        const result = await callGemini(
+        const result = await callGrok(
           'Give me ONE wild, funny, and creative YouTube dare challenge in a single short sentence. Be outrageous and original!',
           'You are a chaotic dare master. Keep it short, wild, and safe. No harmful ideas.'
         );
@@ -68,7 +68,7 @@ export default function DareGenerator() {
           </button>
 
           {/* AI toggle */}
-          {import.meta.env.VITE_GEMINI_API_KEY && (
+          {import.meta.env.VITE_GROK_API_KEY && (
             <div className="mt-6 flex items-center justify-center gap-3">
               <span className="font-black uppercase text-sm">AI Mode</span>
               <button
@@ -84,7 +84,7 @@ export default function DareGenerator() {
                 />
               </button>
               <span className="font-black uppercase text-[10px] opacity-60">
-                {useAI ? 'GEMINI POWERED' : 'CLASSIC LIST'}
+                {useAI ? 'GROK POWERED' : 'CLASSIC LIST'}
               </span>
             </div>
           )}

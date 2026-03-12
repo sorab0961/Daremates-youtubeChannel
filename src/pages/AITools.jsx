@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Zap, Loader2 } from 'lucide-react';
-import { callGemini } from '../api/gemini';
+import { callGrok } from '../api/grok';
 import { Sticker } from '../components/Sticker';
 import { FadeIn } from '../components/FadeIn';
 
@@ -12,8 +12,8 @@ export default function AITools() {
 
   const generateAIIdea = async () => {
     if (!prompt.trim()) return;
-    if (!import.meta.env.VITE_GEMINI_API_KEY) {
-      setError('Add your VITE_GEMINI_API_KEY to the .env file to use AI features.');
+    if (!import.meta.env.VITE_GROK_API_KEY) {
+      setError('Add your VITE_GROK_API_KEY to the .env file to use AI features.');
       return;
     }
 
@@ -22,11 +22,11 @@ export default function AITools() {
     setResult(null);
 
     try {
-      const response = await callGemini(
+      const response = await callGrok(
         `Generate a viral video script outline with the theme: "${prompt}". Make it wild, funny, and dare-focused.`,
         'You are a chaotic viral YouTuber. Use lots of emojis and caps. Keep it fun!'
       );
-      setResult(response || 'No output from Gemini.');
+      setResult(response || 'No output from Grok.');
     } catch (e) {
       setError('AI is overloaded right now! Try again in a few seconds. 🤖💥');
     } finally {
