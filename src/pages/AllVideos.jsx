@@ -156,12 +156,7 @@ export default function AllVideos() {
         </p>
       )}
 
-      {/* ── Add API key hint ── */}
-      {!loading && !channelStats && (
-        <div className="bg-[#111118] border-l-4 border-[#FFD600] p-4 font-black text-sm text-[#A0A0B0] uppercase">
-          💡 Add <code className="text-[#FFD600]">VITE_YOUTUBE_API_KEY</code> to your .env to load live channel content.
-        </div>
-      )}
+
 
       {/* ── Error state ── */}
       {error && !loading && (
